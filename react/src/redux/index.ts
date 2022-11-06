@@ -1,19 +1,16 @@
 import { configureStore, createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 const initialState = {
-  text: 'World'
+  name: 'Google'
 };
 
 export const slice = createSlice({
   name: 'name',
   initialState,
   reducers: {
-      change(state, action: PayloadAction<string>) {
-          state.text = action.payload;
-      },
-      reset(state) {
-          state.text = initialState.text;
-      }
+    sendName(state, action: PayloadAction<string>) {
+      state.name = action.payload;
+    }
   },
 });
 

@@ -14,4 +14,4 @@ COPY --from=golang /usr/local/go /usr/local/go
 ENV PATH $PATH:/usr/local/go/bin/
 
 # update alpine
-RUN apk update && apk --update add sudo wget vim make
+RUN apk update && apk --update add sudo wget vim make git

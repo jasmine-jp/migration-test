@@ -1,18 +1,12 @@
-import React, { useState } from 'react';
-import { BtnGroup } from './btn-group';
-import { store } from './redux';
+import React from 'react';
+import { OutputName } from './output';
+import { InputName } from './input';
 
 export const App = () => {
-  const [state, setState] = useState('World');
-  const s = 'Hello ' + state;
   return (
     <>
-      <p children={s} />
-      <button
-        children={'Change State'}
-        onClick={ () => setState(store.getState().text) }
-      />
-      <BtnGroup />
+      <OutputName />
+      <InputName />
     </>
   );
 }
