@@ -1,10 +1,16 @@
-.PHONY: down, front, back
+.PHONY: down, clean, front, back
 
 default:
 	docker compose up -d
 down:
 	docker compose down
 	docker system prune -a
+	make clean
+clean:
+	cd go \
+		&& rm -f -R go.mod go.sum
+	cd react \
+		&& rm -f -R node_modules package-lock.json
 
 front:
 	cd react && npm install && npm run start
@@ -13,7 +19,8 @@ back:
 		&& rm -f -R go.mod go.sum \
 		&& go mod init go \
 		&& go get -u github.com/gin-gonic/gin \
-		&& go get github.com/google/go-github/v48
+		&& go get github.com/google/go-github/v48 \
+		&& go get github.com/jinzhu/copier
 	cd go/api \
 		&& go get
 	cd go \

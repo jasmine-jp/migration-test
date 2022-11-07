@@ -6,16 +6,16 @@ import (
 )
 
 func main() {
-	username := "chihiro-yabuta"
-	followers, repos := api.Get(username)
+	user := new(api.User)
 
-	web := gin.Default()
-	web.GET("", func(c *gin.Context) {
+	router := gin.Default()
+	router.GET("/", func(c *gin.Context) {
+		user.GetGitApi(c)
 		c.JSON(200, gin.H{
-			"username": username,
-		    "followers": followers,
-		    "public repos": repos,
+			"username": user.Name,
+			"followers": user.Followers,
+			"public repos": user.ReposNum,
 		})
 	})
-	web.Run() // "localhost:8080"
+	router.Run() // "localhost:8080"
 }
