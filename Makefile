@@ -20,7 +20,8 @@ back:
 		&& go mod init go \
 		&& go get -u github.com/gin-gonic/gin \
 		&& go get github.com/google/go-github/v48 \
-		&& go get github.com/jinzhu/copier
+		&& go get github.com/jinzhu/copier \
+		&& go get github.com/gin-contrib/cors
 	cd go/api \
 		&& go get
 	cd go \

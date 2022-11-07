@@ -1,12 +1,12 @@
 import React from 'react';
-import { OutputName } from './output';
-import { InputName } from './input';
+import { TextArea } from './components/textarea';
+import { Result } from './components/result';
 
 export const App = () => {
   return (
     <>
-      <OutputName />
-      <InputName />
+      <TextArea />
+      <Result />
     </>
   );
 }
